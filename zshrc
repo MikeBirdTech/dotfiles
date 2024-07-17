@@ -284,8 +284,13 @@ aicommit() {
   python "$SCRIPT_PATH/ai_git_commit.py"
 }
 
-# Generate subtitles for a video
-
+###### Video Helpers
+# Generate subtitles for a video. Provide path to video as argument
+# Usage: generate_subtitles /path/to/video.mp4
+alias generate_subtitles='python /Users/mike/Code/scripts/generate_subtitles.py'
+# Generate thumbnail for a video
+# Usage: generate_thumbnail /path/to/video.mp4
+alias generate_thumbnail='python /Users/mike/Code/scripts/generate_thumbnail.py'
 
 ###### Open Interpreter
 # Get the latest version of OI from git
