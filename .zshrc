@@ -151,6 +151,8 @@ alias ll="ls -la"
 alias python="python3"
 alias pmpip="python -m pip"
 alias code="cursor"
+alias obsidian_backup="./Code/scripts/obsidian_backup.sh"
+
 ###### Secrets
 # Using Bitwarden Secret Manager CLI 
 # Usage: bws [option] <command>
@@ -320,3 +322,14 @@ eval "$(pyenv init -)"
 
 . "$HOME/.cargo/env"
 eval "$(atuin init zsh)"
+
+
+###### Zoxide
+# https://github.com/ajeetdsouza/zoxide
+eval "$(zoxide init zsh)"
+
+###### Starship
+# https://starship.rs/guide/
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/dotfiles/.starship.toml
+
