@@ -113,10 +113,8 @@ export GOPATH=/Users/mike/go
 
 #### Custom Functions
 # mkdir + cd
-mkcd () {
-    mkdir -p -- "$1" &&
-    cd -P -- "$1"
-}
+mkcd() { mkdir -p "$@" && cd "$_"; }
+
 
 # git clone a repo and cd into it
 gccd() {
