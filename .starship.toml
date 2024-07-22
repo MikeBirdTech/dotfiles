@@ -38,6 +38,7 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
 
 [cmd_duration]
+min_time = 10_000  # Show for commands that take more than 10 seconds
 format = "[$duration]($style) "
 style = "yellow"
 
