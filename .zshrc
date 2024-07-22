@@ -115,13 +115,23 @@ export GOPATH=/Users/mike/go
 # mkdir + cd
 mkcd() { mkdir -p "$@" && cd "$_"; }
 
-
+###### Git
 # git clone a repo and cd into it
 gccd() {
     git clone $1
     cd $(echo $1 | grep -oE '([^/]+)\.git$' | sed 's/\.git$//')
 }
 
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add --all'
+alias gc='git commit -v'
+alias gcm='git commit -m'
+alias gco='git checkout'
+alias gd='git diff'
+alias gl='git pull'
+alias gp='git push'
+alias glo='git log --oneline --decorate --color'
 
 
 # NVM
@@ -147,6 +157,7 @@ export LS_COLORS="di=38;5;130:ln=36:so=32:pi=33:ex=31:bd=35:cd=34:su=31:sg=36:tw
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/mike/Library/pnpm:/Users/mike/.nvm/versions/node/v21.6.0/bin:/Library/Frameworks/Python.framework/Versions/3.11/bin:/usr/local/go/bin:/Users/mike/.cargo/bin:/Users/mike/.local/bin:/Users/mike/go/bin:/Users/mike/Library/Python/3.11/bin:/usr/local/llamafile/bin:$PATH"
 
 export SCRIPT_PATH="/Users/mike/Code/scripts"
+export PATH="$SCRIPT_PATH:$PATH"
 
 ###### Aliases
 alias cat="bat"
@@ -155,7 +166,8 @@ alias ll="ls -la"
 alias python="python3"
 alias pmpip="python -m pip"
 alias code="cursor"
-alias obsidian_backup="./Code/scripts/obsidian_backup.sh"
+alias obsidian_backup="obsidian_backup.sh"
+alias rezsh="source ~/.zshrc"
 
 ###### Secrets
 # Using Bitwarden Secret Manager CLI 
@@ -287,16 +299,16 @@ alias ai='noglob cli_ai'
 
 # Have AI generate a git commit message with 'aicommit'
 aicommit() {
-  python "$SCRIPT_PATH/ai_git_commit.py"
+  ai_git_commit.py
 }
 
 ###### Video Helpers
 # Generate subtitles for a video. Provide path to video as argument
 # Usage: generate_subtitles /path/to/video.mp4
-alias generate_subtitles='python /Users/mike/Code/scripts/generate_subtitles.py'
+alias generate_subtitles='generate_subtitles.py'
 # Generate thumbnail for a video
 # Usage: generate_thumbnail /path/to/video.mp4
-alias generate_thumbnail='python /Users/mike/Code/scripts/generate_thumbnail.py'
+alias generate_thumbnail='generate_thumbnail.py'
 
 ###### Open Interpreter
 # Get the latest version of OI from git
@@ -306,7 +318,7 @@ pip install --upgrade --force-reinstall git+https://github.com/OpenInterpreter/o
 
 # Sync my fork with the main repo
 sync_oi() {
-  python "$SCRIPT_PATH/sync_oi.py"
+  sync_oi.py
 }
 
 
