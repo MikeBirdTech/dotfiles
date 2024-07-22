@@ -1,0 +1,48 @@
+# Window configuration
+[window]
+dimensions = { columns = 120, lines = 30 }
+padding = { x = 5, y = 5 }
+decorations = "full"
+opacity = 0.97  # Slight transparency (0.0 = fully transparent, 1.0 = opaque)
+
+# Font configuration
+[font]
+normal = { family = "Hack Nerd Font", style = "Regular" }
+bold = { family = "Hack Nerd Font", style = "Bold" }
+italic = { family = "Hack Nerd Font", style = "Italic" }
+bold_italic = { family = "Hack Nerd Font", style = "Bold Italic" }
+size = 14.0
+
+# Color scheme (you can customize this to your liking)
+[colors.primary]
+background = "#1e1e1e"
+foreground = "#d4d4d4"
+
+# Key bindings
+[[keyboard.bindings]]
+key = "Back"
+mods = "Command"
+chars = "\u0015"  # CTRL+U, which erases the entire line in most shells
+
+[[keyboard.bindings]]
+key = "Left"
+mods = "Command"
+chars = "\u001bb"  # ALT+B, which moves back one word in most shells
+
+[[keyboard.bindings]]
+key = "Right"
+mods = "Command"
+chars = "\u001bf"  # ALT+F, which moves forward one word in most shellsi
+
+# New key binding to open a new window
+[[keyboard.bindings]]
+key = "N"
+mods = "Command"
+action = "CreateNewWindow"
+
+# Other settings
+[scrolling]
+history = 10000
+
+[selection]
+save_to_clipboard = true
