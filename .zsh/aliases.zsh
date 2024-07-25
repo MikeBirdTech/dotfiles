@@ -1,6 +1,10 @@
 # Aliases
 alias rezsh="source ~/.zshrc"
 
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+
 # Git
 alias gs='git status'
 alias ga='git add'
@@ -31,3 +35,6 @@ alias generate_subtitles='generate_subtitles.py'
 # Generate thumbnail for a video
 # Usage: generate_thumbnail /path/to/video.mp4
 alias generate_thumbnail='generate_thumbnail.py'
+
+# SSH
+alias aipi='ssh_aipi.sh'

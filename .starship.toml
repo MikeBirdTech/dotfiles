@@ -1,4 +1,5 @@
 format = """
+${custom.pi_connection}\
 $username\
 $hostname\
 $directory\
@@ -8,7 +9,14 @@ $git_status\
 $cmd_duration\
 $line_break\
 $python\
+$golang\
 $character"""
+
+[custom.pi_connection]
+command = "echo 🚀"
+when = 'test -n "$SSH_CONNECTION" && test "$(hostname)" = "aipi"'
+format = "[[$output](bg:#4B0082 fg:#FFD700)]($style)"
+style = "bold bg:#4B0082 fg:#FFD700"
 
 [directory]
 style = "blue"
