@@ -27,6 +27,7 @@ alias code="cursor"
 # Function aliases
 alias ai='noglob cli_ai'
 alias obsidian_backup="obsidian_backup.sh"
+alias daily_focus='daily_focus.py'
 
 # Video Helpers
 # Generate subtitles for a video. Provide path to video as argument
