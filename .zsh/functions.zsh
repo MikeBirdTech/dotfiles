@@ -6,20 +6,37 @@ aicommit() {
 }
 
 # Ask the AI for a CLI command with 'ai'
-cli_ai() {
+ai() {
   setopt local_options no_glob
   python "$SCRIPT_PATH/cli_ai.py" "$@"
 }
 
-
-# Get the latest version of OI from git
-get_latest_oi() {
-  pip install --upgrade --force-reinstall git+https://github.com/OpenInterpreter/open-interpreter.git
-}
-
-# Sync my fork with the main repo
+# Sync my fork with the main Open Interpreter repo
 sync_oi() {
-  sync_oi.py
+    local repo_dir="/Users/mike/Code/open-interpreter"
+    local fork_url="MikeBirdTech/open-interpreter"
+    local branch="main"
+    local verbose=""
+
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --branch)
+                branch="$2"
+                shift 2
+                ;;
+            --verbose)
+                verbose="--verbose"
+                shift
+                ;;
+            *)
+                echo "Unknown option: $1"
+                return 1
+                ;;
+        esac
+    done
+
+    sync_repo.py --repo-dir "$repo_dir" --fork-url "$fork_url" --branch "$branch" $verbose
 }
 
 # mkdir + cd
@@ -37,6 +54,7 @@ lazy_load_nvm(){
       [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
       [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 }
+
 nvm(){
     lazy_load_nvm
     nvm "$@"
@@ -59,8 +77,15 @@ fkill() {
   fi
 }
 
-# Test function
-testfunc () {
-print "test"
-export TEST='tester'
+# Video helpers
+# Generate subtitles for a video. Provide path to video as argument
+# Usage: generate_subtitles /path/to/video.mp4
+generate_subtitles() {
+    generate_subtitles.py "$@"
+}
+
+# Generate thumbnail for a video
+# Usage: generate_thumbnail /path/to/video.mp4
+generate_thumbnail() {
+    generate_thumbnail.py "$@"
 }

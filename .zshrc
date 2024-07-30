@@ -9,17 +9,15 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export TERMINAL="alacritty"
 export BROWSER="brave"
-
-export SCRIPT_PATH="/Users/mike/Code/scripts"
-export STARSHIP_CONFIG=$HOME/dotfiles/.starship.toml
-export GOPATH=/Users/mike/go
-export PNPM_HOME="/Users/mike/Library/pnpm"
+export SCRIPT_PATH="$HOME/Code/scripts"
+export STARSHIP_CONFIG="$HOME/dotfiles/.starship.toml"
+export GOPATH="$HOME/go"
+export PNPM_HOME="$HOME/Library/pnpm"
 export PYTORCH_ENABLE_MPS_FALLBACK=1
 export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0
 export OLLAMA_MODEL='codestral'
 export FAST_OLLAMA_MODEL='llama3.1'
 export WRITING_OLLAMA_MODEL='gemma2:27b'
-
 export LS_COLORS="di=38;5;130:ln=36:so=32:pi=33:ex=31:bd=35:cd=34:su=31:sg=36:tw=32:ow=33"
 
 # PyEnv
@@ -29,6 +27,7 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
 # Set PATH
+typeset -U path
 path=(
   /opt/homebrew/bin
   /usr/local/bin
@@ -56,7 +55,7 @@ autoload -U colors && colors
 # History in cache directory
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+HISTFILE="$HOME/.cache/zsh/history"
 
 # Basic auto/tab complete
 autoload -U compinit
@@ -72,7 +71,7 @@ source ~/.zsh/functions.zsh
 source ~/.zsh/aliases.zsh
 
 # Load custom secrets
-source ~/.zsh/secrets.zsh
+(source ~/.zsh/secrets.zsh &)
 
 # Load Atuin
 eval "$(atuin init zsh)"

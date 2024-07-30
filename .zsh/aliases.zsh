@@ -1,4 +1,6 @@
 # Aliases
+
+#zsh
 alias rezsh="source ~/.zshrc"
 
 # Navigation
@@ -16,6 +18,7 @@ alias gd='git diff'
 alias gl='git pull'
 alias gp='git push'
 alias glo='git log --oneline --decorate --color'
+alias get_latest_oi='pip install --upgrade --force-reinstall git+https://github.com/OpenInterpreter/open-interpreter.git'
 
 # Tools
 alias cat="bat"
@@ -25,17 +28,9 @@ alias pmpip="python -m pip"
 alias code="cursor"
 
 # Function aliases
-alias ai='noglob cli_ai'
 alias obsidian_backup="obsidian_backup.sh"
 alias daily_focus='daily_focus.py'
-
-# Video Helpers
-# Generate subtitles for a video. Provide path to video as argument
-# Usage: generate_subtitles /path/to/video.mp4
-alias generate_subtitles='generate_subtitles.py'
-# Generate thumbnail for a video
-# Usage: generate_thumbnail /path/to/video.mp4
-alias generate_thumbnail='generate_thumbnail.py'
+alias lfg='activity_tracker.py'
 
 # SSH
 alias aipi='ssh_aipi.sh'

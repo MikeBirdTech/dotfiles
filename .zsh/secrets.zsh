@@ -86,8 +86,6 @@ load_api_keys() {
         value=$(echo "$secret" | jq -r '.value')
         export "$key"="$value"
     done < <(bws secret list "$project_id" | jq -c '.[]')
-
-    echo "All secrets from project '$project_name' have been loaded as environment variables."
 }
 
 # Ensure BWS token is set and load secrets when starting a new shell session
