@@ -71,7 +71,7 @@ source ~/.zsh/functions.zsh
 source ~/.zsh/aliases.zsh
 
 # Load custom secrets
-(source ~/.zsh/secrets.zsh &)
+source ~/.zsh/secrets.zsh
 
 # Load Atuin
 eval "$(atuin init zsh)"
