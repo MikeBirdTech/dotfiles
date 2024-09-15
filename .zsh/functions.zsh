@@ -2,13 +2,12 @@
 
 # Have AI generate a git commit message with 'aicommit'
 aicommit() {
-  ai_git_commit.py "$@"
+  ai_git_commit.py --service groq "$@"
 }
 
-# Ask the AI for a CLI command with 'ai'
-ai() {
-  setopt local_options no_glob
-  python "$SCRIPT_PATH/cli_ai.py" "$@"
+# Ask the AI for a CLI command
+ai_cli() {
+    "ai_cli.py" --service groq "$@"
 }
 
 # Sync my fork with the main Open Interpreter repo

@@ -34,3 +34,6 @@ alias lfg='activity_tracker.py'
 
 # SSH
 alias aipi='ssh_aipi.sh'
+
+# AI
+alias ai='noglob ai_cli'

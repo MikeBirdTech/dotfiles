@@ -8,7 +8,7 @@ export BAT_THEME="Coldark-Dark"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export TERMINAL="alacritty"
-export BROWSER="brave"
+export BROWSER="firefox-nightly"
 export SCRIPT_PATH="$HOME/Code/scripts"
 export STARSHIP_CONFIG="$HOME/dotfiles/.starship.toml"
 export GOPATH="$HOME/go"
@@ -44,6 +44,7 @@ path=(
   $GOPATH/bin
   $HOME/Library/Python/3.11/bin
   /usr/local/llamafile/bin
+  $HOME/llamafile/bin
   $SCRIPT_PATH
   $PYENV_ROOT/bin
   $path
