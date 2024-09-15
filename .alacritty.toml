@@ -3,7 +3,7 @@
 dimensions = { columns = 120, lines = 30 }
 padding = { x = 5, y = 5 }
 decorations = "full"
-opacity = 0.97  # Slight transparency (0.0 = fully transparent, 1.0 = opaque)
+opacity = 1  # Slight transparency (0.0 = fully transparent, 1.0 = opaque)
 
 # Font configuration
 [font]
