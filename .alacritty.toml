@@ -1,10 +1,11 @@
 # Window configuration
 [window]
 dimensions = { columns = 120, lines = 30 }
-padding = { x = 5, y = 5 }
-decorations = "full"
-opacity = 1  # Slight transparency (0.0 = fully transparent, 1.0 = opaque)
-
+padding = { x = 10, y = 10 }
+decorations = "Full"
+opacity = 0.98  # Slight transparency (0.0 = fully transparent, 1.0 = opaque)
+blur = true
+title = ""
 # Font configuration
 [font]
 normal = { family = "Hack Nerd Font", style = "Regular" }
