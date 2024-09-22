@@ -23,7 +23,7 @@ alias get_latest_oi='pip install --upgrade --force-reinstall git+https://github.
 # Tools
 alias cat="bat"
 alias ls="eza"
-alias ll="ls -la"
+alias ll="ls -la --hyperlink"
 alias pmpip="python -m pip"
 alias code="cursor"
 
