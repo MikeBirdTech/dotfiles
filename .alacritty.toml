@@ -19,9 +19,9 @@ background = "#1e1e1e"
 foreground = "#d4d4d4"
 
 [colors.hints]
-start = { foreground = "#ffffff", background = "#ff6b6b" }
+start = { foreground = "#ffffff", background = "#228B22" }
 
-end = { foreground = "#ffffff", background = "#ff6b6b" }
+end = { foreground = "#ffffff", background = "#228B22" }
 
 [mouse]
 hide_when_typing = false
@@ -31,12 +31,6 @@ thickness=0.01
 
 [hints]
 alphabet = "jfkdls;ahgurieowpq"
-
-# Edit text files (Command + E)
-[[hints.enabled]]
-regex = "[^\\s]+\\.(py|sh|md)"
-command = "nvim"
-binding = { key = "E", mods = "Command" }
 
 # Open media files and URLs (Command + O)
 [[hints.enabled]]
@@ -51,12 +45,6 @@ post_processing = true
 regex = "[^\\s]+\\.(py|sh|md|jpg|jpeg|png|gif|bmp|svg)|https?://[^\\s]+"
 action = "Copy"
 binding = { key = "C", mods = "Command" }
-
-# Run Python scripts (Command + P)
-[[hints.enabled]]
-regex = "[^\\s]+\\.py"
-command = "python"
-binding = { key = "P", mods = "Command" }
 
 # Key bindings
 [[keyboard.bindings]]
