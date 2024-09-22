@@ -2,7 +2,7 @@
 
 # Have AI generate a git commit message with 'aicommit'
 aicommit() {
-  ai_git_commit.py --service groq "$@"
+  ai_git_commit.py --service groq --vim "$@"
 }
 
 # Ask the AI for a CLI command
