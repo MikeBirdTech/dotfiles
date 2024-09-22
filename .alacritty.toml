@@ -14,10 +14,49 @@ italic = { family = "Hack Nerd Font", style = "Italic" }
 bold_italic = { family = "Hack Nerd Font", style = "Bold Italic" }
 size = 14.0
 
-# Color scheme (you can customize this to your liking)
 [colors.primary]
 background = "#1e1e1e"
 foreground = "#d4d4d4"
+
+[colors.hints]
+start = { foreground = "#ffffff", background = "#ff6b6b" }
+
+end = { foreground = "#ffffff", background = "#ff6b6b" }
+
+[mouse]
+hide_when_typing = false
+
+[cursor]
+thickness=0.01
+
+[hints]
+alphabet = "jfkdls;ahgurieowpq"
+
+# Edit text files (Command + E)
+[[hints.enabled]]
+regex = "[^\\s]+\\.(py|sh|md)"
+command = "nvim"
+binding = { key = "E", mods = "Command" }
+
+# Open media files and URLs (Command + O)
+[[hints.enabled]]
+regex = "[^\\s]+\\.(jpg|jpeg|png|gif|bmp|svg)|https?://[^\\s]+"
+command = "open"
+binding = { key = "O", mods = "Command" }
+hyperlinks = true
+post_processing = true
+
+# Copy file paths and URLs (Command + C)
+[[hints.enabled]]
+regex = "[^\\s]+\\.(py|sh|md|jpg|jpeg|png|gif|bmp|svg)|https?://[^\\s]+"
+action = "Copy"
+binding = { key = "C", mods = "Command" }
+
+# Run Python scripts (Command + P)
+[[hints.enabled]]
+regex = "[^\\s]+\\.py"
+command = "python"
+binding = { key = "P", mods = "Command" }
 
 # Key bindings
 [[keyboard.bindings]]
