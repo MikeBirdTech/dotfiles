@@ -52,7 +52,7 @@ post_processing = true
 regex = "[^\\s]+\\.(py|sh|md|jpg|jpeg|png|gif|bmp|svg)|https?://[^\\s]+"
 action = "Copy"
 binding = { key = "C", mods = "Command" }
-
+hyperlinks = false
 # Key bindings
 [[keyboard.bindings]]
 key = "Back"
