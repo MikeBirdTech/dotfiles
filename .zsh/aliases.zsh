@@ -18,7 +18,6 @@ alias gd='git diff'
 alias gl='git pull'
 alias gp='git push'
 alias glo='git log --oneline --decorate --color'
-alias get_latest_oi='pip install --upgrade --force-reinstall git+https://github.com/OpenInterpreter/open-interpreter.git'
 
 # Tools
 alias cat="bat"
