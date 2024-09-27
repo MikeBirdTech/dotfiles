@@ -6,6 +6,7 @@ decorations = "Full"
 opacity = 0.98  # Slight transparency (0.0 = fully transparent, 1.0 = opaque)
 blur = true
 title = ""
+
 # Font configuration
 [font]
 normal = { family = "Hack Nerd Font", style = "Regular" }
@@ -18,16 +19,16 @@ size = 14.0
 background = "#1e1e1e"
 foreground = "#d4d4d4"
 
-[colors.hints]
-start = { foreground = "#ffffff", background = "#228B22" }
-
-end = { foreground = "#ffffff", background = "#228B22" }
-
 [mouse]
 hide_when_typing = false
 
 [cursor]
 thickness=0.01
+
+# Hints
+[colors.hints]
+start = { foreground = "#ffffff", background = "#228B22" }
+end = { foreground = "#ffffff", background = "#228B22" }
 
 [hints]
 alphabet = "jfkdls;ahgurieowpq"
@@ -59,6 +60,7 @@ key = "Back"
 mods = "Command"
 chars = "\u0015"  # CTRL+U, which erases the entire line in most shells
 
+# Keyboard bindings
 [[keyboard.bindings]]
 key = "Left"
 mods = "Command"

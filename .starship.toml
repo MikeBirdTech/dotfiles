@@ -12,6 +12,8 @@ $python\
 $golang\
 $character"""
 
+command_timeout = 1000
+
 [custom.pi_connection]
 command = "echo 🚀"
 when = 'test -n "$SSH_CONNECTION" && test "$(hostname)" = "aipi"'
