@@ -2,9 +2,6 @@
 [user]
 	name = Mike Bird
 	email = 63524998+MikeBirdTech@users.noreply.github.com 
-# Please adapt and uncomment the following lines:
-#	name = Mike Bird
-#	email = mike@arrendy.com
 
 [init]
 	defaultBranch = master
