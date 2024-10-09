@@ -1,0 +1,7 @@
+# aider config
+
+dark-mode: true
+
+auto-commits: false
+
+vim: true
