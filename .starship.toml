@@ -6,13 +6,17 @@ $directory\
 $git_branch\
 $git_state\
 $git_status\
-$cmd_duration\
-$line_break\
+$fill\
 $python\
 $golang\
+$cmd_duration\
+$line_break\
 $character"""
 
 command_timeout = 1000
+
+[fill]
+symbol = ' '
 
 [custom.pi_connection]
 command = "echo 🚀"
@@ -22,25 +26,34 @@ style = "bold bg:#4B0082 fg:#FFD700"
 
 [directory]
 style = "blue"
+truncation_length = 3
+truncation_symbol = '.../'
+truncate_to_repo = false
+
+[directory.substitutions]
 
 [character]
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+vimcmd_symbol = "[](green)"
 
 [git_branch]
-format = "[$branch]($style)"
+format = "[$symbol $branch]($style)"
 style = "bright-black"
+symbol = '󰘬'
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+format = "[[($conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
 style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
+conflicted = "!"
+untracked = "*"
+modified = " "
+staged = "+"
+renamed = "»"
+deleted = "✘"
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
 stashed = "≡"
 
 [git_state]
@@ -50,8 +63,9 @@ style = "bright-black"
 [cmd_duration]
 min_time = 10_000  # Show for commands that take more than 10 seconds
 format = "[$duration]($style) "
-style = "yellow"
+style = "#ff13ef"
 
 [python]
-format = "[$virtualenv]($style) "
-style = "bright-black"
+symbol = ''
+format = '[${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style) '
+style = "yellow"
