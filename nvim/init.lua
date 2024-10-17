@@ -109,25 +109,6 @@ vim.opt.rtp:prepend(lazypath)
 --
 require("lazy").setup({
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-	{
-		"folke/which-key.nvim",
-		event = "VimEnter",
-		opts = {
-			icons = {
-				mappings = vim.g.have_nerd_font,
-				keys = {},
-			},
-			spec = {
-				{ "<leader>c", group = "[C]ode", mode = { "n", "x" } },
-				{ "<leader>d", group = "[D]ocument" },
-				{ "<leader>r", group = "[R]ename" },
-				{ "<leader>s", group = "[S]earch" },
-				{ "<leader>w", group = "[W]orkspace" },
-				{ "<leader>t", group = "[T]oggle" },
-				{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
-			},
-		},
-	},
 	{ -- Autoformat
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
@@ -222,45 +203,17 @@ require("lazy").setup({
 		end,
 	},
 
-	{
-		"tris203/precognition.nvim",
-		--event = "VeryLazy",
-		opts = {
-			-- startVisible = true,
-			-- showBlankVirtLine = true,
-			-- highlightColor = { link = "Comment" },
-			-- hints = {
-			--      Caret = { text = "^", prio = 2 },
-			--      Dollar = { text = "$", prio = 1 },
-			--      MatchingPair = { text = "%", prio = 5 },
-			--      Zero = { text = "0", prio = 1 },
-			--      w = { text = "w", prio = 10 },
-			--      b = { text = "b", prio = 9 },
-			--      e = { text = "e", prio = 8 },
-			--      W = { text = "W", prio = 7 },
-			--      B = { text = "B", prio = 6 },
-			--      E = { text = "E", prio = 5 },
-			-- },
-			-- gutterHints = {
-			--     PrevParagraph = { text = "{", prio = 8 },
-			--     NextParagraph = { text = "}", prio = 8 },
-			-- },
-			-- disabled_fts = {
-			--     "startify",
-			-- },
-		},
-	},
-	{
-		"ThePrimeagen/vim-be-good",
-	},
-	{ "tpope/vim-surround" },
+	"tris203/precognition.nvim",
+	"ThePrimeagen/vim-be-good",
+	"tpope/vim-surround",
 	{ import = "custom.plugins" },
-	{ import = "custom.keymaps" },
 }, {
 	ui = {
 		icons = {},
 	},
 })
+
+require("custom.keymaps")
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
