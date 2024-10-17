@@ -48,12 +48,13 @@ binding = { key = "O", mods = "Command" }
 hyperlinks = true
 post_processing = true
 
-# Copy file paths and URLs (Command + C)
+# Yank file paths and URLs (Command + Y)
 [[hints.enabled]]
 regex = "[^\\s]+\\.(py|sh|md|jpg|jpeg|png|gif|bmp|svg)|https?://[^\\s]+"
 action = "Copy"
-binding = { key = "C", mods = "Command" }
+binding = { key = "Y", mods = "Command" }
 hyperlinks = false
+
 # Key bindings
 [[keyboard.bindings]]
 key = "Back"
