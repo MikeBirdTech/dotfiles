@@ -14,3 +14,7 @@
 
 [credential]
 	helper = cache
+[pull]
+	rebase = true
+[core]
+	excludesfile = /Users/mike/.gitignore_global

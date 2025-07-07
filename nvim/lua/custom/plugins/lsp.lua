@@ -84,7 +84,7 @@ return {
 				html = {},
 				cssls = {},
 				emmet_ls = {},
-				tsserver = {},
+				ts_ls = {},
 				lua_ls = {
 					settings = {
 						Lua = {

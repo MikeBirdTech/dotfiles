@@ -1,14 +1,11 @@
-# Custom Functions
-
-# Have AI generate a git commit message with 'aicommit'
-aicommit() {
+aicm() {
   ai_git_commit.py --service groq --vim "$@"
 }
 
 # Ask the AI for a CLI command
-ai_cli() {
-    "ai_cli.py" --service groq "$@"
-}
+# ai_cli() {
+#    "ai_cli.py" --service groq "$@"
+# }
 
 # Sync my fork with the main Open Interpreter repo
 sync_oi() {

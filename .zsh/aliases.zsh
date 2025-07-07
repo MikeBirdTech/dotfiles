@@ -15,9 +15,10 @@ alias gc='git commit -v'
 alias gcm='git commit -m'
 alias gco='git checkout'
 alias gd='git diff'
-alias gl='git pull'
+alias gpu='git pull'
 alias gp='git push'
 alias glo='git log --oneline --decorate --color'
+alias gb='git branch'
 
 # Tools
 alias cat="bat"
@@ -35,4 +36,4 @@ alias lfg='activity_tracker.py'
 alias aipi='ssh_aipi.sh'
 
 # AI
-alias ai='noglob ai_cli'
+# alias ai='noglob ai_cli'
