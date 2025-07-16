@@ -1,11 +1,12 @@
 # Aliases
 
-#zsh
+# zsh
 alias rezsh="source ~/.zshrc"
 
 # Navigation
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
 
 # Git
 alias gs='git status'
@@ -23,17 +24,37 @@ alias gb='git branch'
 # Tools
 alias cat="bat"
 alias ls="eza"
-alias ll="ls -la --hyperlink"
+alias ll="eza -la --hyperlink --icons --git"
 alias pmpip="python -m pip"
-alias code="cursor"
+alias grep='rg'
+alias find='fd'
+alias tree='eza --tree'
+alias tree2='eza --tree --level=2'
+alias tree3='eza --tree --level=3'
+alias list='eza --tree --icons --all'
+
+# Python
+alias activate='source .venv/bin/activate'
 
 # Function aliases
-alias obsidian_backup="obsidian_backup.sh"
-alias daily_focus='daily_focus.py'
-alias lfg='activity_tracker.py'
+# Check if scripts exist before creating an alias
+if [ -x "$SCRIPT_PATH/obsidian_backup.sh" ]; then
+    alias obsidian_backup="obsidian_backup.sh"
+fi
+if [ -x "$SCRIPT_PATH/daily_focus.py" ]; then
+    alias daily_focus='daily_focus.py'
+fi
+if [ -x "$SCRIPT_PATH/activity_tracker.py" ]; then
+    alias lfg='activity_tracker.py'
+fi
 
 # SSH
-alias aipi='ssh_aipi.sh'
+if [ -x "$SCRIPT_PATH/ssh_aipi.sh" ]; then
+    alias aipi='ssh_aipi.sh'
+fi
 
 # AI
-# alias ai='noglob ai_cli'
+alias ai='noglob sh -c "uv run --project /Users/mike/Code/scripts ai_cli.py \"\$@\"" --'
+
+# Cheat sheet
+alias '?'='cheat'   # so you can just type "?" then Enter

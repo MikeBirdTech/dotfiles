@@ -13,7 +13,7 @@ normal = { family = "Hack Nerd Font", style = "Regular" }
 bold = { family = "Hack Nerd Font", style = "Bold" }
 italic = { family = "Hack Nerd Font", style = "Italic" }
 bold_italic = { family = "Hack Nerd Font", style = "Bold Italic" }
-size = 14.0
+size = 18.0
 
 [colors.primary]
 background = "#1e1e1e"
@@ -77,6 +77,16 @@ chars = "\u001bf"  # ALT+F, which moves forward one word in most shellsi
 key = "N"
 mods = "Command"
 action = "CreateNewWindow"
+
+[[keyboard.bindings]]
+key  = "Up"
+mods = "Alt"
+action = "ScrollHalfPageUp"
+
+[[keyboard.bindings]]
+key  = "Down"
+mods = "Alt"
+action = "ScrollHalfPageDown"
 
 # Other settings
 [scrolling]

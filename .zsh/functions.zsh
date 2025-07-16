@@ -2,11 +2,42 @@ aicm() {
   ai_git_commit.py --service groq --vim "$@"
 }
 
-# Ask the AI for a CLI command
-# ai_cli() {
-#    "ai_cli.py" --service groq "$@"
-# }
+# ---------- fix‑assistant hooks & command ------------------
+# ❶  Capture the command and its real‑time stderr *only* when it fails
+function _fix_preexec() {
+  FIX_CMD="$1"
+  FIX_ERR_FILE=$(mktemp -t fix.XXXX)              # temp file for stderr
+  exec 3>&2 2> >(tee -a "$FIX_ERR_FILE" >&2)      # tee stderr to file
+}
+function _fix_precmd() {
+  local ec=$?                                     # exit code of last cmd
+  # Only restore stderr if file descriptor 3 exists (i.e., _fix_preexec was called)
+  if [[ -e /dev/fd/3 ]]; then
+    exec 2>&3 3>&-                                # restore stderr
+  fi
+  if (( ec )); then                               # only remember failures
+    export FIX_LAST_CMD="$FIX_CMD"
+    export FIX_LAST_ERR_FILE="$FIX_ERR_FILE"
+  else
+    rm -f "$FIX_ERR_FILE"                         # clean up successes
+  fi
+}
+preexec_functions+=(_fix_preexec)
+precmd_functions+=(_fix_precmd)
 
+# ❷  The `fix` command you’ll type after a failure
+function fix() {
+  local suggestion
+  suggestion=$(python3 ~/scripts/fix 2>/dev/null)
+  if [[ -n $suggestion ]]; then
+    print -z -- "$suggestion"                     # inject into prompt
+  else
+    print -- "fix: nothing to suggest." >&2
+  fi
+}
+# -----------------------------------------------------------
+
+# Replace this with a more generic function that can be used for any repo
 # Sync my fork with the main Open Interpreter repo
 sync_oi() {
     local repo_dir="/Users/mike/Code/open-interpreter"
@@ -84,4 +115,30 @@ generate_subtitles() {
 # Usage: generate_thumbnail /path/to/video.mp4
 generate_thumbnail() {
     generate_thumbnail.py "$@"
+}
+
+# Cross-platform clipboard utilities
+_clip() {                     # internal helper: cross-platform clipboard
+  if command -v pbcopy &>/dev/null; then pbcopy
+  elif command -v xclip &>/dev/null; then xclip -selection clipboard
+  elif command -v wl-copy &>/dev/null; then wl-copy
+  else print "No clipboard tool" >&2; return 1; fi
+}
+
+copy() {
+  if [[ -t 0 && $# -gt 0 ]]; then         # called as: copy file.txt
+    cat -- "$@" | _clip
+  else                                    # called in a pipe
+    _clip
+  fi
+}
+
+# Interactive cheat sheet for aliases and functions
+cheat() {
+  {
+    echo "# Aliases" && alias
+    echo "# Functions" && declare -f | sed -n 's/^\([^ ]*\) () .*/\1/p' | grep -v '^_'
+  } | fzf --header='Type ⏎ to copy' \
+      --preview='if [[ {} == *"="* ]]; then echo {}; else type $(echo {} | cut -d" " -f1); fi' \
+      --bind 'enter:execute-silent(echo -n {} | cut -d"=" -f1 | cut -d" " -f1 | pbcopy)+abort'
 }
